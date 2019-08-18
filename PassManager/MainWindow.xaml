@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PassManager"
         mc:Ignorable="d"
-        Title="PassManager" Height="450" Width="800" Loaded="Window_Loaded" MinWidth="650" MinHeight="350">
+        Title="PassManager" Height="475" Width="800" Loaded="Window_Loaded" MinWidth="650" MinHeight="350">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -36,8 +36,14 @@
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="364*"/>
                 </Grid.RowDefinitions>
-                <Button Content="Добавить Аккаунт" Padding="0" BorderThickness="0" Background="{x:Null}" Click="Button_Click" Cursor="Hand" FontSize="14"/>
-                <ListBox Name="accounts"  BorderBrush="{x:Null}" SelectionChanged="ListBox_SelectionChanged" BorderThickness="0" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1"/>
+                <Button Content="Добавить Аккаунт" Padding="0" BorderThickness="0" Background="{x:Null}" Click="Button_Click" Cursor="Hand" FontSize="14" FontFamily="DejaVu Sans"/>
+                <ListBox Name="accounts"  BorderBrush="{x:Null}" SelectionChanged="ListBox_SelectionChanged" BorderThickness="0" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" FontSize="14" FontFamily="DejaVu Sans">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding name}"></TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </Grid>
             <Frame x:Name="frame" Grid.Column="2" NavigationUIVisibility="Hidden"/>
         </Grid>

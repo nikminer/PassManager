@@ -2,7 +2,7 @@
 namespace PassManager
 {
     [DataContract]
-    public class Account
+    public class AccountDataContract
     {
         [DataMember]
         public string name { get; set; }
@@ -11,7 +11,7 @@ namespace PassManager
         [DataMember]
         public string hash { get; set; }
 
-        public Account(string name, string password, string hash)
+        public AccountDataContract(string name, string password, string hash)
         {
             this.name = name;
             this.password = password;

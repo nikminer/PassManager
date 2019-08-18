@@ -20,8 +20,10 @@ namespace PassManager
     /// </summary>
     public partial class AddPassword : Page
     {
-        public AddPassword()
+        MainWindow win;
+        public AddPassword(MainWindow win)
         {
+            this.win = win;
             InitializeComponent();
         }
 
@@ -52,19 +54,53 @@ namespace PassManager
 
             hashname = Crypt.encrypt(accountName.Text, "key");
             hashpass = Crypt.encrypt(pass, "key");
-            hash = Crypt.encrypt(id.ToString(), "key");
+            hash = Crypt.encrypt(hashname+hashpass, "key");
 
-            Json.dump(typeof(Account), AppData.Appdir + "\\" + id, new Account(hashname, hashpass, hash));
+            Json.dump(typeof(AccountDataContract), AppData.Appdir + "\\" + id, new AccountDataContract(hashname, hashpass, hash));
+            win.Update();
         }
 
         private void FildValid(object sender, TextChangedEventArgs e)
         {
-
+            if (CheckHidden.IsChecked.Value)
+                if (accountName.Text.Length > 0 && PasswordHide.Text.Length > 0)
+                    SavePass.IsEnabled = true;
+                else
+                    SavePass.IsEnabled = false;                      
         }
 
         private void PasswordField_PasswordChanged(object sender, RoutedEventArgs e)
         {
+            if (accountName.Text.Length > 0 && PasswordField.Password.Length > 0)
+                SavePass.IsEnabled = true;
+            else
+                SavePass.IsEnabled = false;
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string dict = "qwertyuiopasdfghjklzxcvbnm";
+            if (isLower.IsChecked.Value)
+                dict += "QWERTYUIOPASDFGHJKLZXCVBNM";
+            if (isDigital.IsChecked.Value)
+                dict += "1234567890";
+            if (isSpecial.IsChecked.Value)
+                dict+= "`~!@#$%^&*()_-+={}[]\\|:;\"'<>,.?/";
+
+            string pass=string.Empty;
+            Random rnd = new Random();
+            for (int i = 0; i < SizePass.Value; i++)
+                pass += dict[rnd.Next(0, dict.Length)];
+
+            if (CheckHidden.IsChecked.Value)
+               PasswordHide.Text= pass;
+            else
+               PasswordField.Password = pass;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            win.frame.Content = "";
         }
     }
 }

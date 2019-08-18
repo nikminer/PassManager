@@ -1,0 +1,38 @@
+﻿<Page x:Class="PassManager.Account"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PassManager"
+      mc:Ignorable="d" 
+      Title="Аккаунт" MinHeight="275" MinWidth="400" Loaded="Page_Loaded">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="116"/>
+            </Grid.ColumnDefinitions>
+            <Button Cursor="Hand" x:Name="cryptBtn" Content="Показать пароль" Margin="5,5,10,0" VerticalAlignment="Top" Height="21" Background="{x:Null}" Click="Button_Click" Grid.Column="1"/>
+            <Button Cursor="Hand" Content="Скопировать" Margin="5,33,10,5" Background="{x:Null}" Grid.Column="1" Click="Button_Click_1"/>
+            <TextBlock x:Name="PasswordTitle" Padding="5,10" TextWrapping="Wrap" Background="#FFC9C9C9" Margin="8,5,5,5" TextAlignment="Center" LineHeight="16" FontFamily="DejaVu Sans" FontSize="16" ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+        </Grid>
+        <Label Name="AccountLabel" Content="Label" HorizontalAlignment="Left" Margin="3,6,0,0" FontSize="16" FontWeight="Bold" FontFamily="DejaVu Sans" Width="59"/>
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <StackPanel ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <Button Content="Изменить Аккаунт" Height="30" Margin="15" Cursor="Hand" Background="White" Click="Button_Click_4" />
+                <Button Content="Удалить Аккаунт" Height="30" Margin="15" Cursor="Hand" Background="White" Click="Button_Click_2" />
+            </StackPanel>
+        </ScrollViewer>
+        <Button Content="Закрыть" Margin="0,5,10,3" Background="{x:Null}" Grid.Row="3" Click="Button_Click_3" Cursor="Hand" HorizontalAlignment="Right" Width="101"/>
+    </Grid>
+</Page>

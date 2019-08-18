@@ -41,7 +41,7 @@ namespace PassManager
         private void Ok_Click(object sender, RoutedEventArgs e)
         {
 
-            Environment.SetEnvironmentVariable(AppData.MastePassVariableName, Crypt.HashSHA512(PassBox.Text));
+            Environment.SetEnvironmentVariable(AppData.MastePassVariableName, Crypt.HashSHA512(PassBox.Password));
             
             MainWindow win = new MainWindow();
             win.Show();

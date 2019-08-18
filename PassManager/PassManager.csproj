@@ -56,6 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="СhangePassword.xaml.cs">
+      <DependentUpon>СhangePassword.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Account.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -65,6 +72,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Account.cs" />
+    <Compile Include="Account.xaml.cs">
+      <DependentUpon>Account.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddPassword.xaml.cs">
       <DependentUpon>AddPassword.xaml</DependentUpon>
     </Compile>
@@ -80,6 +90,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MasterPasswordEnter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="СhangePassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,6 +126,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\encrypted.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\hide.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

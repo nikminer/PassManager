@@ -17,7 +17,7 @@ namespace PassManager
         public static void dump(Type sender, string file, object obj)
         {
             DataContractJsonSerializer jsonSerializer = new DataContractJsonSerializer(sender);
-            using (FileStream fs = new FileStream(file, FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(file, FileMode.Create))
             {
                 jsonSerializer.WriteObject(fs, obj);
             }
