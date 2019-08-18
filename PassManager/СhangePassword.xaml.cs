@@ -31,7 +31,7 @@ namespace PassManager
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             accountname.Text = account.name;
-            Password.Text = Crypt.decrypt(account.password, "key");
+            Password.Text = Crypt.decrypt(account.password, Environment.GetEnvironmentVariable(AppData.MastePassVariableName));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,9 +42,9 @@ namespace PassManager
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string hashname, hashpass, hash;
-            hashname = Crypt.encrypt(accountname.Text, "key");
-            hashpass = Crypt.encrypt(Password.Text, "key");
-            hash = Crypt.encrypt(hashname + hashpass, "key");
+            hashname = Crypt.encrypt(accountname.Text, Environment.GetEnvironmentVariable(AppData.MastePassVariableName));
+            hashpass = Crypt.encrypt(Password.Text, Environment.GetEnvironmentVariable(AppData.MastePassVariableName));
+            hash = Crypt.encrypt(hashname + hashpass, Environment.GetEnvironmentVariable(AppData.MastePassVariableName));
             Json.dump(typeof(AccountDataContract), AppData.Appdir + "\\" + account.id, new AccountDataContract(hashname, hashpass, hash));
             win.Update();
 

@@ -52,9 +52,9 @@ namespace PassManager
                 pass = PasswordField.Password;
             Guid id = Guid.NewGuid();
 
-            hashname = Crypt.encrypt(accountName.Text, "key");
-            hashpass = Crypt.encrypt(pass, "key");
-            hash = Crypt.encrypt(hashname+hashpass, "key");
+            hashname = Crypt.encrypt(accountName.Text, Environment.GetEnvironmentVariable(AppData.MastePassVariableName));
+            hashpass = Crypt.encrypt(pass, Environment.GetEnvironmentVariable(AppData.MastePassVariableName));
+            hash = Crypt.encrypt(hashname+hashpass, Environment.GetEnvironmentVariable(AppData.MastePassVariableName));
 
             Json.dump(typeof(AccountDataContract), AppData.Appdir + "\\" + id, new AccountDataContract(hashname, hashpass, hash));
             win.Update();

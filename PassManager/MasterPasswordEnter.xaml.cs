@@ -47,5 +47,13 @@ namespace PassManager
             win.Show();
             this.Close();
         }
+
+        private void PassBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (PassBox.Password.Length > 0)
+                enter.IsEnabled = true;
+            else
+                enter.IsEnabled = false;
+        }
     }
 }

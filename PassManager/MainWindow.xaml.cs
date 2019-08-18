@@ -51,15 +51,14 @@ namespace PassManager
                 files = Directory.GetFiles(AppData.Appdir);
             }
 
-
             foreach (string i in files)
             {
                 using (FileStream fs = new FileStream(i, FileMode.OpenOrCreate))
                 {
                     AccountDataContract account = (AccountDataContract)Json.load(typeof(AccountDataContract), fs);
-
-                    if (account.name + account.password == Crypt.decrypt(account.hash, "key"))
-                        accounts.Items.Add(new AccountData( Crypt.decrypt(account.name, "key"), account.password,i.Split('\\').Last()));
+                    
+                    if (account.name + account.password == Crypt.decrypt(account.hash, Environment.GetEnvironmentVariable(AppData.MastePassVariableName)))
+                        accounts.Items.Add(new AccountData( Crypt.decrypt(account.name, Environment.GetEnvironmentVariable(AppData.MastePassVariableName)), account.password,i.Split('\\').Last()));
 
                     var a = new ListBoxItem();
                 }

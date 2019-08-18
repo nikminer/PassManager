@@ -48,7 +48,7 @@ namespace PassManager
         {
             if (isCrtpt)
             {
-                PasswordTitle.Text = Crypt.decrypt(account.password, "key");
+                PasswordTitle.Text = Crypt.decrypt(account.password, Environment.GetEnvironmentVariable(AppData.MastePassVariableName));
                 cryptBtn.Content = "Скрыть пароль";
             }
             else
@@ -62,7 +62,7 @@ namespace PassManager
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Clipboard.SetText(Crypt.decrypt(account.password, "key"));
+            Clipboard.SetText(Crypt.decrypt(account.password, Environment.GetEnvironmentVariable(AppData.MastePassVariableName)));
             MessageBox.Show("Пароль скопирован в буфер обмена");
         }
 
