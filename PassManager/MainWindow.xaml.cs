@@ -63,6 +63,7 @@ namespace PassManager
                     var a = new ListBoxItem();
                 }
             }
+            accounts.Items.SortDescriptions.Add(new System.ComponentModel.SortDescription("name", System.ComponentModel.ListSortDirection.Ascending));
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

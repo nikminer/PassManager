@@ -31,7 +31,7 @@
             -->
             </ScrollViewer>
         </Grid>
-        <Label Name="AccountLabel" Content="Label" HorizontalAlignment="Left" Margin="3,6,0,0" FontSize="16" FontWeight="Bold" FontFamily="DejaVu Sans" Width="59"/>
+        <Label Name="AccountLabel" Content="Label" HorizontalAlignment="Left" Margin="3,6,0,0" FontSize="16" FontWeight="Bold" FontFamily="DejaVu Sans"/>
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
             <StackPanel ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <Button Content="Изменить Аккаунт" Height="30" Margin="15" Cursor="Hand" Background="White" Click="Button_Click_4" />
