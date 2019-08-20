@@ -24,7 +24,12 @@
             </Grid.ColumnDefinitions>
             <Button Cursor="Hand" x:Name="cryptBtn" Content="Показать пароль" Margin="5,5,10,0" VerticalAlignment="Top" Height="21" Background="{x:Null}" Click="Button_Click" Grid.Column="1"/>
             <Button Cursor="Hand" Content="Скопировать" Margin="5,33,10,5" Background="{x:Null}" Grid.Column="1" Click="Button_Click_1"/>
-            <TextBlock x:Name="PasswordTitle" Padding="5,10" TextWrapping="Wrap" Background="#FFC9C9C9" Margin="8,5,5,5" TextAlignment="Center" LineHeight="16" FontFamily="DejaVu Sans" FontSize="16" ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+            <ScrollViewer Background="#FFC9C9C9" Margin="10,5,0,5" VerticalScrollBarVisibility="Auto">
+                <TextBox x:Name="PasswordTitle" TextWrapping="Wrap" TextAlignment="Center" FontFamily="DejaVu Sans" FontSize="14" Text="TextBox" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" />
+
+                <!--<TextBlock   TextWrapping="Wrap"   ScrollViewer.VerticalScrollBarVisibility="Disabled" Height="50" Width="272" />
+            -->
+            </ScrollViewer>
         </Grid>
         <Label Name="AccountLabel" Content="Label" HorizontalAlignment="Left" Margin="3,6,0,0" FontSize="16" FontWeight="Bold" FontFamily="DejaVu Sans" Width="59"/>
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">

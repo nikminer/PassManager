@@ -69,6 +69,13 @@ namespace PassManager
             accounts.SelectedIndex = -1;
             frame.NavigationService.Navigate(new AddPassword(this));
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MasterPasswordEnter master = new MasterPasswordEnter();
+            master.Show();
+            this.Close();
+        }
     }
 
     public class AccountData
